@@ -25,12 +25,15 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkBox = variableBinding.checkBox;
         RadioButton radioButton = variableBinding.radioButton;
         Switch Switch = variableBinding.Switch;
-        ImageView imageView = variableBinding.Image;
+        ImageButton imagebutton = variableBinding.imagebutton;
 
         btn.setOnClickListener(click ->
         {
-            model.editString.postValue(variableBinding.myedittext.getText().toString());
 
+            model.editString.observe(this,s -> {
+                variableBinding.textview.setText("Your edit text has: " + s);
+            });
+            model.editString.postValue(variableBinding.myedittext.getText().toString());
         });
 
         model.getEditBoolean().observe(this, editBoolean-> {
@@ -62,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, text, duration).show();
         });
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+        imagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int width = imageView.getWidth();
-                int height = imageView.getHeight();
+                int width = variableBinding.imagebutton.getWidth();
+                int height = variableBinding.imagebutton.getHeight();
                 String msg = "The width = "+width+" and height = "+height;
                 int duration = Toast.LENGTH_SHORT;
                 Toast.makeText(MainActivity.this, msg, duration).show();

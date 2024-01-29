@@ -64,7 +64,7 @@
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:text="@string/radioButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.821"
@@ -75,11 +75,22 @@
         android:id="@+id/Image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginTop="14dp"
         android:rotationX="0"
+        android:src="@drawable/ac_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Switch" />
+
+    <ImageButton
+        android:id="@+id/imagebutton"
+        android:layout_width="160dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/ac_img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
