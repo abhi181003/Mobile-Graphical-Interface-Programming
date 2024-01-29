@@ -46,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         variableBinding.Switch.setOnCheckedChangeListener((compoundButton, isChecked) ->
                 model.setEditBoolean(isChecked));
 
+        CompoundButton.OnCheckedChangeListener compoundButtonListener = (compoundButton, isChecked) -> {
+            model.setEditBoolean(isChecked);
+            String toastMsg = "Compound Button has been " + (isChecked ? "checked" : "unchecked");
+            Toast.makeText(this, toastMsg, Toast.LENGTH_SHORT).show();
+        };
+
+        variableBinding.checkBox.setOnCheckedChangeListener(compoundButtonListener);
+
+
         model.editString.observe(this, isChecked -> {
             String text = "The value is now: " + isChecked;
             int duration = Toast.LENGTH_SHORT;
