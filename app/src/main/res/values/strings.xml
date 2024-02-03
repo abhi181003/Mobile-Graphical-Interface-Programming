@@ -3,7 +3,7 @@
     <string name="greetings">Hello World!</string>
     <string name="button_text">I\'m a button</string>
     <string name="editmessage">I\'m an EditText</string>
-    <string name="hint">Movie Recommendation</string>
+    <string name="hint">Write Something</string>
     <string name="checkBox">Do you drink coffee?</string>
     <string name="Switch">Do you drink coffee?</string>
     <string name="radioButton">Do you drink coffee?</string>

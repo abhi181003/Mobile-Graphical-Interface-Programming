@@ -4,7 +4,7 @@
     <string name="greetings">Bonjour tout le monde!</string>
     <string name="button_text">Je suis un bouton</string>
     <string name="editmessage">Je suis un EditText</string>
-    <string name="hint">Recommandation de film</string>
+    <string name="hint">écris quelque chose</string>
     <string name="checkBox">" Bois-tu du café?"</string>
     <string name="Switch">" Bois-tu du café?"</string>
     <string name="radioButton">" Bois-tu du café?"</string>
