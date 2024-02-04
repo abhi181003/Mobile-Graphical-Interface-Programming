@@ -4,19 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp">
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="@string/button1"
         app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:nextFocusDown="@id/spin_switch"
+        android:nextFocusRight="@id/button4"
+        android:nextFocusLeft="@id/button5"/>
 
     <Button
         android:id="@+id/button4"
@@ -27,7 +32,10 @@
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        android:nextFocusDown="@id/spin_switch"
+        android:nextFocusRight="@id/button5"
+        android:nextFocusLeft="@id/button3"/>
 
     <Button
         android:id="@+id/button5"
@@ -38,7 +46,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toTopOf="@+id/button4" />
+        app:layout_constraintTop_toTopOf="@+id/button4"
+        android:nextFocusDown="@id/spin_switch"
+        android:nextFocusRight="@id/button3"
+        android:nextFocusLeft="@id/button4"/>
 
     <ImageView
         android:id="@+id/flagView"
@@ -57,6 +68,8 @@
         android:text="Switch"
         app:layout_constraintBottom_toBottomOf="@+id/flagView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/flagView" />
+        app:layout_constraintTop_toTopOf="@+id/flagView"
+        android:nextFocusUp="@id/button3"
+        android:nextFocusLeft="@id/spin_switch"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
