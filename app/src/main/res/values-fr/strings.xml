@@ -3,6 +3,7 @@
     <string name="app_name">Abhishek\'s Android Labs</string>
     <string name="hello_message">Bonjour tout le monde!</string>
     <string name="button_message">connectez-vous</string>
+    <string name="welcome">Bienvenue</string>
     <string name="email">Entrez votre adresse e-mail :</string>
     <string name="editEmail">Tapez l’e-mail ici</string>
     <string name="pass">Saisissez votre mot de passe :</string>

@@ -44,6 +44,7 @@ public class SecondActivity extends AppCompatActivity {
         callButton = findViewById(R.id.buttonCall);
         ChangePicButton =findViewById(R.id.button2);
         camImage =findViewById(R.id.imageView);
+        String welcomeMessage = getString(R.string.welcome);
 
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +96,7 @@ public class SecondActivity extends AppCompatActivity {
         Intent fromPrevious = getIntent();
         String emailAddress = fromPrevious.getStringExtra("EmailAddress");
         TextView greetings = findViewById(R.id.textViewGreetings);
-        greetings.setText("Welcome back " + emailAddress);
+        greetings.setText(welcomeMessage+ " " + emailAddress);
 
         prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         String savedPhoneNumber = prefs.getString("PhoneNumber", "");
