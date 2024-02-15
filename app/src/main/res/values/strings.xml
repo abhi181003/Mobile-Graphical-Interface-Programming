@@ -2,4 +2,13 @@
     <string name="app_name">Abhishek\'s Android Labs</string>
     <string name="hello_message">Hello World!</string>
     <string name="button_message">I\'m a Button</string>
+    <string name="passText">Type your password</string>
+    <string name="loginBtn">Login</string>
+    <string name="Empty">Empty String, Please write your password</string>
+    <string name="up">Missing an UpperCase Letter</string>
+    <string name="low">Missing a LowerCase Letter</string>
+    <string name="digit">Missing a Numerical Character Letter</string>
+    <string name="specialChar">Missing a special character</string>
+    <string name="success">Your password meets the requirements</string>
+    <string name="fail">You shall not pass!</string>
 </resources>
