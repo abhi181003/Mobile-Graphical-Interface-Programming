@@ -5,6 +5,15 @@
     <string name="button_message">Je suis un bouton</string>
     <string name="msg">Le message va ici</string>
     <string name="time">Le temps passe ici</string>
+    <string name="passText">tapez votre mot de passe</string>
+    <string name="loginBtn">se connecter</string>
     <string name="send">Envoyer</string>
     <string name="recieve">Recevoir</string>
+    <string name="Empty">Chaîne vide, veuillez écrire votre mot de passe</string>
+    <string name="up">Il manque une lettre majuscule</string>
+    <string name="low">Il manque une lettre minuscule</string>
+    <string name="digit">Il manque une lettre de caractère numérique</string>
+    <string name="specialChar">Il manque un caractère spécial</string>
+    <string name="success">Votre mot de passe répond aux exigences</string>
+    <string name="fail">Vous ne pouvez pas passer!</string>
 </resources>
