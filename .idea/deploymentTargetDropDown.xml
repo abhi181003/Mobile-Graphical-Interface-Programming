@@ -13,12 +13,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\abhi1\.android\avd\Pixel_7_API_34.avd" />
+                  <value value="C:\Users\abhi1\.android\avd\Pixel_7_API_27.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-11T19:12:43.666593400Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-03-12T02:34:30.757398900Z" />
         </State>
       </entry>
       <entry key="testFindMissingUpperCase()">

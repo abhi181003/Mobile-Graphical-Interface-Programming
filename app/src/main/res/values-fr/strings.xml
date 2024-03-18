@@ -16,4 +16,10 @@
     <string name="specialChar">Il manque un caractère spécial</string>
     <string name="success">Votre mot de passe répond aux exigences</string>
     <string name="fail">Vous ne pouvez pas passer!</string>
+    <string name="Alert">Voulez-vous supprimer le message :</string>
+    <string name="ques">Question:</string>
+    <string name="no">Non</string>
+    <string name="yes">Oui</string>
+    <string name="snackerbar">Vous avez supprimé le message #</string>
+    <string name="undo">annuler</string>
 </resources>

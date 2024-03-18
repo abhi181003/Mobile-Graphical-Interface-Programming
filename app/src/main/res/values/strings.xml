@@ -15,5 +15,13 @@
     <string name="specialChar">Missing a special character</string>
     <string name="success">Your password meets the requirements</string>
     <string name="fail">You shall not pass!</string>
+    <string name="Alert">Do you want to delete the message: </string>
+    <string name="ques">"Question: "</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="snackerbar">You deleted message #</string>
+    <string name="undo">Undo</string>
+    <string name="simpleDateFormat" translatable="false">EEEE, dd-MMM-yyyy hh-mm-ss a</string>
+    <string name="databaseName" translatable="false">Chat-Storage</string>
 
 </resources>
