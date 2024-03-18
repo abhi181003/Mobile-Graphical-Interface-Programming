@@ -163,6 +163,10 @@ public class ChatRoom extends AppCompatActivity {
                             Snackbar.make(msgText, getString(R.string.snackerbar)+ (position + 1), Snackbar.LENGTH_LONG)
                                     .setAction(getString(R.string.undo), click -> {
                                         messages.add(position, removedMessage);
+                                        Executor thread2 = Executors.newSingleThreadExecutor();
+                                        thread2.execute(() -> {
+                                            removedMessage.id = (int) mDAO.insertMessage(removedMessage);
+                                        });
                                         myAdapter.notifyItemInserted(position);
                                     })
                                     .show();
