@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,29 +33,12 @@ public class ChatRoom extends AppCompatActivity {
     ChatRoomViewModel chatModel ;
     ArrayList<ChatMessage> messages = new ArrayList<>();
 
+    ChatMessageDAO mDAO;
     ChatMessage chatMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        MessageDatabase db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, getString(R.string.databaseName)).build();
-        ChatMessageDAO mDAO = db.cmDAO();
-
-        Executor thread = Executors.newSingleThreadExecutor();
-        thread.execute(() -> {if(messages == null)
-        {
-            chatModel.messages.setValue(messages = new ArrayList<>());
-
-            Executor threads = Executors.newSingleThreadExecutor();
-            threads.execute(() ->
-            {
-                messages.addAll( mDAO.getAllMessages() ); //Once you get the data from database
-
-                runOnUiThread( () ->  binding.recyclerView.setAdapter( myAdapter )); //You can then load the RecyclerView
-            });
-        }});
-
         binding = ActivityChatRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -65,6 +49,18 @@ public class ChatRoom extends AppCompatActivity {
             chatModel.messages.postValue( messages = new ArrayList<>());
         }
 
+
+        Executor thread = Executors.newSingleThreadExecutor();
+        thread.execute(() ->
+        {
+            MessageDatabase db = Room.databaseBuilder(getApplicationContext(), MessageDatabase.class, getString(R.string.databaseName)).build();
+            mDAO = db.cmDAO();
+
+            messages.addAll( mDAO.getAllMessages());
+            runOnUiThread( () ->
+                    binding.recyclerView.setAdapter( myAdapter ));
+        });
+
         binding.sendButton.setOnClickListener(click -> {
             SimpleDateFormat sdf = new SimpleDateFormat(getString(R.string.simpleDateFormat));
             String currentDateAndTime = sdf.format(new Date());
@@ -72,6 +68,11 @@ public class ChatRoom extends AppCompatActivity {
             messages.add(chatMessage);
             myAdapter.notifyItemInserted(messages.size()-1);
             binding.textInput.setText("");
+
+            Executor thread1 = Executors.newSingleThreadExecutor();
+            thread1.execute(() -> {
+                chatMessage.id = (int) mDAO.insertMessage(chatMessage);
+            });
         });
 
         binding.recieveButton.setOnClickListener(click -> {
@@ -81,6 +82,11 @@ public class ChatRoom extends AppCompatActivity {
             messages.add(chatMessage);
             myAdapter.notifyItemInserted(messages.size()-1);
             binding.textInput.setText("");
+
+            Executor thread1 = Executors.newSingleThreadExecutor();
+            thread1.execute(() -> {
+                chatMessage.id = (int) mDAO.insertMessage(chatMessage);
+            });
         });
 
         binding.recyclerView.setAdapter(myAdapter = new RecyclerView.Adapter<MyRowHolder>() {
@@ -148,6 +154,10 @@ public class ChatRoom extends AppCompatActivity {
 
                             ChatMessage removedMessage = messages.get(position);
                             messages.remove(position);
+                            Executor thread1 = Executors.newSingleThreadExecutor();
+                            thread1.execute(() -> {
+                                removedMessage.id = (int) mDAO.deleteMessage(removedMessage);
+                            });
                             myAdapter.notifyItemRemoved(position);
 
                             Snackbar.make(msgText, getString(R.string.snackerbar)+ (position + 1), Snackbar.LENGTH_LONG)

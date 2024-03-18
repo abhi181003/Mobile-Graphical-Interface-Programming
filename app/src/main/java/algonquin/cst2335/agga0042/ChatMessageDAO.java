@@ -17,5 +17,5 @@ public interface ChatMessageDAO {
     public List<ChatMessage> getAllMessages();
 
     @Delete
-    void deleteMessage(ChatMessage m);
+    int deleteMessage(ChatMessage m);
 }
