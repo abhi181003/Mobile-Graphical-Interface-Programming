@@ -10,9 +10,12 @@ import androidx.room.Room;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -130,6 +133,39 @@ public class ChatRoom extends AppCompatActivity {
         });
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        setSupportActionBar(binding.toolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_menu, menu);
+
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.item_1) {
+
+            new AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.delete_title))
+                    .setMessage(getString(R.string.delete_confirm_message))
+                    .setPositiveButton(getString(R.string.delete), (dialog, which) -> {
+                        messages.clear();
+                        myAdapter.notifyDataSetChanged();
+                        Toast.makeText(this, getString(R.string.delete_confirmation), Toast.LENGTH_SHORT).show();
+                    })
+                    .setNegativeButton(getString(R.string.cancel), null)
+                    .show();
+            return true;
+        } else if (id == R.id.about) {
+            Toast.makeText(this, getString(R.string.about), Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     public class MyRowHolder extends RecyclerView.ViewHolder {

@@ -23,5 +23,11 @@
     <string name="undo">Undo</string>
     <string name="simpleDateFormat" translatable="false">EEEE, dd-MMM-yyyy hh-mm-ss a</string>
     <string name="databaseName" translatable="false">ChatStorage</string>
+    <string name="delete_title">Delete All Messages</string>
+    <string name="delete_confirm_message">Are you sure you want to delete all messages?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_confirmation">All messages deleted</string>
+    <string name="about">Version 1.3, created by Abhishek Aggarwal</string>
 
 </resources>

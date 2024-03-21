@@ -22,4 +22,10 @@
     <string name="yes">Oui</string>
     <string name="snackerbar">Vous avez supprimé le message #</string>
     <string name="undo">annuler</string>
+    <string name="delete_title">Supprimer tous les messages</string>
+    <string name="delete_confirm_message">Êtes-vous sûr de vouloir supprimer tous les messages ?</string>
+    <string name="delete">Supprimer</string>
+    <string name="cancel">Annuler</string>
+    <string name="delete_confirmation">Tous les messages supprimés</string>
+    <string name="about">Version 1.3, créée par Abhishek Aggarwal</string>
 </resources>
