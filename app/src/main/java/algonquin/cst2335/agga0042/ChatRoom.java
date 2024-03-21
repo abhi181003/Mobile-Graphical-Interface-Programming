@@ -65,31 +65,11 @@ public class ChatRoom extends AppCompatActivity {
         });
 
         binding.sendButton.setOnClickListener(click -> {
-            SimpleDateFormat sdf = new SimpleDateFormat(getString(R.string.simpleDateFormat));
-            String currentDateAndTime = sdf.format(new Date());
-            chatMessage = new ChatMessage(binding.textInput.getText().toString(), currentDateAndTime, true);
-            messages.add(chatMessage);
-            myAdapter.notifyItemInserted(messages.size()-1);
-            binding.textInput.setText("");
-
-            Executor thread1 = Executors.newSingleThreadExecutor();
-            thread1.execute(() -> {
-                chatMessage.id = (int) mDAO.insertMessage(chatMessage);
-            });
+            message(true);
         });
 
         binding.recieveButton.setOnClickListener(click -> {
-            SimpleDateFormat sdf = new SimpleDateFormat(getString(R.string.simpleDateFormat));
-            String currentDateAndTime = sdf.format(new Date());
-            ChatMessage chatMessage = new ChatMessage(binding.textInput.getText().toString(), currentDateAndTime, false);
-            messages.add(chatMessage);
-            myAdapter.notifyItemInserted(messages.size()-1);
-            binding.textInput.setText("");
-
-            Executor thread1 = Executors.newSingleThreadExecutor();
-            thread1.execute(() -> {
-                chatMessage.id = (int) mDAO.insertMessage(chatMessage);
-            });
+            message(false);
         });
 
         binding.recyclerView.setAdapter(myAdapter = new RecyclerView.Adapter<MyRowHolder>() {
@@ -135,6 +115,7 @@ public class ChatRoom extends AppCompatActivity {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         setSupportActionBar(binding.toolbar);
+        binding.toolbar.setTitle("ChatRoom");
     }
 
     @Override
@@ -154,6 +135,10 @@ public class ChatRoom extends AppCompatActivity {
                     .setMessage(getString(R.string.delete_confirm_message))
                     .setPositiveButton(getString(R.string.delete), (dialog, which) -> {
                         messages.clear();
+                        Executor thread1 = Executors.newSingleThreadExecutor();
+                        thread1.execute(() -> {
+                            mDAO.deleteAllMessages();
+                        });
                         myAdapter.notifyDataSetChanged();
                         Toast.makeText(this, getString(R.string.delete_confirmation), Toast.LENGTH_SHORT).show();
                     })
@@ -166,6 +151,20 @@ public class ChatRoom extends AppCompatActivity {
         } else {
             return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void message(boolean isSent) {
+        SimpleDateFormat sdf = new SimpleDateFormat(getString(R.string.simpleDateFormat));
+        String currentDateAndTime = sdf.format(new Date());
+        ChatMessage chatMessage = new ChatMessage(binding.textInput.getText().toString(), currentDateAndTime, isSent);
+        messages.add(chatMessage);
+        myAdapter.notifyItemInserted(messages.size() - 1);
+        binding.textInput.setText("");
+
+        Executor thread1 = Executors.newSingleThreadExecutor();
+        thread1.execute(() -> {
+            chatMessage.id = (int) mDAO.insertMessage(chatMessage);
+        });
     }
 
     public class MyRowHolder extends RecyclerView.ViewHolder {
