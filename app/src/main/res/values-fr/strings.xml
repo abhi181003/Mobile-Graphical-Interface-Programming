@@ -28,4 +28,5 @@
     <string name="cancel">Annuler</string>
     <string name="delete_confirmation">Tous les messages supprimés</string>
     <string name="about">Version 1.3, créée par Abhishek Aggarwal</string>
+    <string name="del">Supprimer cet élément</string>
 </resources>

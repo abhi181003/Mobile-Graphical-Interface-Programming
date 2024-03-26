@@ -29,5 +29,6 @@
     <string name="cancel">Cancel</string>
     <string name="delete_confirmation">All messages deleted</string>
     <string name="about">Version 1.3, created by Abhishek Aggarwal</string>
+    <string name="del">Delete this item</string>
 
 </resources>
